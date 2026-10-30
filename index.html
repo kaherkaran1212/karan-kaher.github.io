@@ -153,7 +153,7 @@
     z-index:1;
     display:flex;
     align-items:flex-start;
-    max-width:1280px;
+    max-width:none;
     margin:0 auto;
     padding:0 28px;
   }
@@ -165,7 +165,7 @@
     height:100vh;
     width:var(--rail-w);
     flex-shrink:0;
-    padding:40px 20px 40px 0;
+    padding:72px 0 40px 20px;
     display:flex;
     flex-direction:column;
   }
@@ -351,6 +351,7 @@
   /* ---------- main column ---------- */
   main{
     flex:1;
+    margin:0 auto;
     min-width:0;
     padding:56px 0 100px;
     max-width:var(--maxw);
@@ -496,6 +497,22 @@
   .btn.ghost:hover{border-color:var(--text-faint); color:var(--text); transform:translateY(-1px);}
 
   /* ---------- hero: query console, years of experience, stack ---------- */
+  .profile{
+    position:sticky;
+    top:0;
+    width:264px;
+    flex-shrink:0;
+    padding:64px 24px 0 0;
+  }
+  .avatar{
+    display:block;
+    width:240px; height:240px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--teal);
+    box-shadow:0 0 0 6px rgba(var(--teal-rgb),0.12), var(--shadow);
+    background:#F9F8F4;
+  }
   .sqlbox{
     background:var(--bg-panel);
     border:1px solid var(--border);
@@ -850,8 +867,10 @@
   }
 
   @media (max-width:980px){
-    main{padding:80px 24px 100px; max-width:100%;}
-    .shell{padding:0;}
+    main{padding:24px 24px 100px; max-width:100%;}
+    .shell{padding:0; flex-direction:column;}
+    .profile{position:static; width:auto; padding:72px 24px 0;}
+    .avatar{width:112px; height:112px;}
   }
 </style>
 </head>
@@ -864,68 +883,9 @@
 <div class="shell">
 
   <!-- LEFT RAIL: pipeline console -->
-  <aside class="rail" aria-label="Page navigation">
-    <div class="rail-card">
-      <div class="rail-titlebar">
-        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="mono">karan.dag</span>
-      </div>
-      <nav class="node-list" id="nodeList">
-        <div class="progress-line" id="progressLine"></div>
-        <button class="rail-node" data-target="ingest">
-          <span class="node-dot-wrap"><span class="node-dot"></span></span>
-          <span class="node-copy">
-            <span class="node-task mono">ingest_profile</span>
-            <span class="node-label">About</span>
-          </span>
-          <span class="node-status mono">READY</span>
-        </button>
-        <button class="rail-node" data-target="transform">
-          <span class="node-dot-wrap"><span class="node-dot"></span></span>
-          <span class="node-copy">
-            <span class="node-task mono">transform_stack</span>
-            <span class="node-label">Skills</span>
-          </span>
-          <span class="node-status mono">READY</span>
-        </button>
-        <button class="rail-node" data-target="load">
-          <span class="node-dot-wrap"><span class="node-dot"></span></span>
-          <span class="node-copy">
-            <span class="node-task mono">load_experience</span>
-            <span class="node-label">Experience</span>
-          </span>
-          <span class="node-status mono">READY</span>
-        </button>
-        <button class="rail-node" data-target="validate">
-          <span class="node-dot-wrap"><span class="node-dot"></span></span>
-          <span class="node-copy">
-            <span class="node-task mono">validate_projects</span>
-            <span class="node-label">Projects</span>
-          </span>
-          <span class="node-status mono">READY</span>
-        </button>
-        <button class="rail-node" data-target="schema">
-          <span class="node-dot-wrap"><span class="node-dot"></span></span>
-          <span class="node-copy">
-            <span class="node-task mono">schema_credentials</span>
-            <span class="node-label">Education</span>
-          </span>
-          <span class="node-status mono">READY</span>
-        </button>
-        <button class="rail-node" data-target="output">
-          <span class="node-dot-wrap"><span class="node-dot"></span></span>
-          <span class="node-copy">
-            <span class="node-task mono">output_contact</span>
-            <span class="node-label">Contact</span>
-          </span>
-          <span class="node-status mono">READY</span>
-        </button>
-      </nav>
-      <div class="rail-foot">
-        <a class="rail-btn primary" href="Resumes/KaranKaher_DE_p1.pdf" download>↓ Download resume</a>
-        <a class="rail-btn ghost" href="mailto:kaherkaran1212@gmail.com">Email Karan</a>
-      </div>
-    </div>
+  <!-- LEFT: profile photo -->
+  <aside class="profile">
+    <img class="avatar" src="avatar.jpg" width="240" height="240" alt="Illustrated portrait of Karan Kaher">
   </aside>
 
   <!-- MAIN CONTENT -->
@@ -1242,6 +1202,70 @@
     </footer>
 
   </main>
+
+  <aside class="rail" aria-label="Page navigation">
+    <div class="rail-card">
+      <div class="rail-titlebar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="mono">karan.dag</span>
+      </div>
+      <nav class="node-list" id="nodeList">
+        <div class="progress-line" id="progressLine"></div>
+        <button class="rail-node" data-target="ingest">
+          <span class="node-dot-wrap"><span class="node-dot"></span></span>
+          <span class="node-copy">
+            <span class="node-task mono">ingest_profile</span>
+            <span class="node-label">About</span>
+          </span>
+          <span class="node-status mono">READY</span>
+        </button>
+        <button class="rail-node" data-target="transform">
+          <span class="node-dot-wrap"><span class="node-dot"></span></span>
+          <span class="node-copy">
+            <span class="node-task mono">transform_stack</span>
+            <span class="node-label">Skills</span>
+          </span>
+          <span class="node-status mono">READY</span>
+        </button>
+        <button class="rail-node" data-target="load">
+          <span class="node-dot-wrap"><span class="node-dot"></span></span>
+          <span class="node-copy">
+            <span class="node-task mono">load_experience</span>
+            <span class="node-label">Experience</span>
+          </span>
+          <span class="node-status mono">READY</span>
+        </button>
+        <button class="rail-node" data-target="validate">
+          <span class="node-dot-wrap"><span class="node-dot"></span></span>
+          <span class="node-copy">
+            <span class="node-task mono">validate_projects</span>
+            <span class="node-label">Projects</span>
+          </span>
+          <span class="node-status mono">READY</span>
+        </button>
+        <button class="rail-node" data-target="schema">
+          <span class="node-dot-wrap"><span class="node-dot"></span></span>
+          <span class="node-copy">
+            <span class="node-task mono">schema_credentials</span>
+            <span class="node-label">Education</span>
+          </span>
+          <span class="node-status mono">READY</span>
+        </button>
+        <button class="rail-node" data-target="output">
+          <span class="node-dot-wrap"><span class="node-dot"></span></span>
+          <span class="node-copy">
+            <span class="node-task mono">output_contact</span>
+            <span class="node-label">Contact</span>
+          </span>
+          <span class="node-status mono">READY</span>
+        </button>
+      </nav>
+      <div class="rail-foot">
+        <a class="rail-btn primary" href="Resumes/KaranKaher_DE_p1.pdf" download>↓ Download resume</a>
+        <a class="rail-btn ghost" href="mailto:kaherkaran1212@gmail.com">Email Karan</a>
+      </div>
+    </div>
+  </aside>
 </div>
 
 <script>

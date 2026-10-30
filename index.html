@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karan Kaher | Data Engineer / AI + Data</title>
+<title>Karan Kaher | Data Engineer &amp; GenAI Agent Builder</title>
 <meta name="description" content="Karan Kaher | Data Engineer with 5+ years building Airflow/Databricks/Snowflake pipelines, cloud warehouses (Azure, AWS), SQL performance tuning, and GenAI (RAG) systems.">
-<meta property="og:title" content="Karan Kaher | Data Engineer / AI + Data">
+<meta property="og:title" content="Karan Kaher | Data Engineer &amp; GenAI Agent Builder">
 <meta property="og:description" content="5+ years building pipelines, cloud warehouses, BI reporting and GenAI agents for Insurance, Finance and Retail/FMCG clients.">
 <meta property="og:type" content="website">
 <script>
 (function(){
   var t = null;
   try { t = localStorage.getItem('theme'); } catch(e){}
-  if(t !== 'light' && t !== 'dark'){ t = 'light'; }
+  if(t !== 'light' && t !== 'dark'){ t = 'dark'; }
   document.documentElement.setAttribute('data-theme', t);
 })();
 </script>
@@ -495,6 +495,60 @@
   .btn.ghost{color:var(--text-dim);}
   .btn.ghost:hover{border-color:var(--text-faint); color:var(--text); transform:translateY(-1px);}
 
+  /* ---------- hero: query console, years of experience, stack ---------- */
+  .sqlbox{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    margin-bottom:34px;
+    max-width:640px;
+    overflow:hidden;
+  }
+  .sqlbar{
+    display:flex; align-items:center; gap:7px;
+    padding:10px 16px;
+    background:var(--bg-panel-alt);
+    border-bottom:1px solid var(--border);
+  }
+  .sqlname{margin-left:6px; font-size:12px; color:var(--text-faint);}
+  .sqlrun{margin-left:auto; font-size:12px; color:var(--teal);}
+  pre.sql{
+    margin:0; padding:16px 18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px; line-height:1.8;
+    color:var(--text);
+    overflow-x:auto;
+  }
+  pre.sql .ln{color:var(--text-faint); margin-right:14px; user-select:none;}
+  pre.sql .kw{color:var(--violet); font-weight:600;}
+  pre.sql .str{color:var(--teal);}
+  .sqlres{border-top:1px solid var(--border); overflow-x:auto;}
+  .sqlrow{
+    display:grid; grid-template-columns:150px minmax(200px,1fr) 90px;
+    gap:12px; padding:10px 18px; font-size:13.5px; color:var(--text);
+    min-width:460px;
+  }
+  .sqlrow.head{font-size:11.5px; color:var(--text-faint); border-bottom:1px solid var(--border-soft); padding-bottom:8px;}
+  .sqlrow:not(.head){font-weight:600;}
+
+  .yoe{display:flex; align-items:center; gap:18px; margin-bottom:26px;}
+  .yoe-num{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:56px; line-height:1; font-weight:700;
+    color:var(--teal);
+  }
+  .yoe-meta{display:flex; flex-direction:column; gap:8px;}
+  .yoe-lbl{font-size:11.5px; letter-spacing:0.06em; color:var(--text-faint);}
+  .runs{display:flex; gap:4px; flex-wrap:nowrap;}
+  @media (max-width:520px){
+    .yoe-meta{min-width:0;}
+    .runs{flex-wrap:wrap; max-width:170px;}
+  }
+  .run{width:10px; height:10px; border-radius:2px; background:var(--teal); opacity:0.85;}
+  .run.live{background:var(--amber); animation:blink 1.4s steps(1) infinite;}
+  .hero-stack{margin-bottom:32px; max-width:720px;}
+  .hero-stack .yoe-lbl{display:block; margin-bottom:10px;}
+
   /* ---------- about ---------- */
   .about-text{
     font-size:16.5px;
@@ -869,7 +923,7 @@
       </nav>
       <div class="rail-foot">
         <a class="rail-btn primary" href="Resumes/KaranKaher_DE_p1.pdf" download>↓ Download resume</a>
-        <a class="rail-btn ghost" href="mailto:kaherkaran@gmail.com">Email Karan</a>
+        <a class="rail-btn ghost" href="mailto:kaherkaran1212@gmail.com">Email Karan</a>
       </div>
     </div>
   </aside>
@@ -879,29 +933,38 @@
 
     <!-- HERO -->
     <section class="hero" id="hero" style="border-bottom:none; padding-top:8px;">
-      <div class="terminal">
-        <div class="tbar">
+      <div class="sqlbox" aria-label="Query console intro">
+        <div class="sqlbar">
           <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="mono sqlname">portfolio.sql</span>
+          <span class="mono sqlrun">&#9654; Run</span>
         </div>
-        <div class="term-line" id="termLine"></div>
+<pre class="sql"><span class="ln">1</span><span class="kw">SELECT</span> name, role, years_exp
+<span class="ln">2</span><span class="kw">FROM</span>   engineers
+<span class="ln">3</span><span class="kw">WHERE</span>  stack @&gt; ARRAY[<span class="str">'Airflow'</span>, <span class="str">'Snowflake'</span>, <span class="str">'LangGraph'</span>]
+<span class="ln">4</span>  <span class="kw">AND</span>  works_with = <span class="str">'Claude Code (advanced)'</span>;</pre>
+        <div class="sqlres">
+          <div class="sqlrow head mono"><span>name</span><span>role</span><span>years_exp</span></div>
+          <div class="sqlrow"><span>Karan Kaher</span><span>Data Engineer, GenAI agents</span><span>5+</span></div>
+        </div>
       </div>
 
       <h1>Karan Kaher</h1>
-      <div class="role-line">Data Engineer&nbsp; · &nbsp;GenAI &amp; Agent Builder&nbsp; · &nbsp;LangGraph / LangChain</div>
-      <p class="pitch">I build the data platforms that turn messy enterprise data into decisions, and the LangGraph and LangChain agents that reason over it. Pipelines to production, warehouses to agents, one engineer end to end.</p>
+      <div class="role-line">Data Engineer&nbsp; · &nbsp;GenAI &amp; Agent Builder</div>
+      <p class="pitch">I build the data platforms that turn messy enterprise data into decisions, and the LLM agents, orchestrated with LangGraph and LangChain, that reason over it. One engineer from raw tables to production agents.</p>
 
-      <div class="stat-row">
-        <div class="stat-chip"><span class="num">5+</span><span class="lbl">YEARS EXPERIENCE</span></div>
-        <div class="stat-chip"><span class="num">92</span><span class="lbl">REPORTS OPTIMIZED</span></div>
-        <div class="stat-chip"><span class="num">-60%</span><span class="lbl">QUERY LATENCY</span></div>
-        <div class="stat-chip"><span class="num">24h → RT</span><span class="lbl">FRAUD-DETECTION LAG</span></div>
-        <div class="stat-chip"><span class="num">Weekly → Daily</span><span class="lbl">DATA FRESHNESS</span></div>
-        <div class="stat-chip"><span class="num">3</span><span class="lbl">LANGGRAPH / LANGCHAIN AGENTS</span></div>
-        <div class="stat-chip"><span class="num">100%</span><span class="lbl">ORACLE GENAI SCORE</span></div>
+      <div class="yoe">
+        <span class="yoe-num">5+</span>
+        <span class="yoe-meta"><span class="yoe-lbl mono">YEARS EXPERIENCE</span><span class="runs" aria-hidden="true"><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run"></span><span class="run live"></span></span></span>
+      </div>
+
+      <div class="hero-stack">
+        <span class="yoe-lbl mono">TECH STACK</span>
+        <div class="skill-tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">PySpark</span><span class="tag">Airflow</span><span class="tag">Kafka</span><span class="tag">dbt</span><span class="tag">Databricks</span><span class="tag">Snowflake</span><span class="tag">Redshift</span><span class="tag">Azure</span><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span><span class="tag">Power BI</span><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Claude Code</span></div>
       </div>
 
       <div class="cta-row">
-        <a class="btn primary" href="mailto:kaherkaran@gmail.com">Email me →</a>
+        <a class="btn primary" href="mailto:kaherkaran1212@gmail.com">Email me →</a>
         <a class="btn ghost" href="https://linkedin.com/in/karan-kaher-55645a148" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn ghost" href="Resumes/KaranKaher_DE_p1.pdf" download>Download resume</a>
       </div>
@@ -911,24 +974,24 @@
     <section id="ingest">
       <div class="eyebrow"><span class="n">01</span> INGEST</div>
       <h2>About</h2>
-      <p class="section-sub">The raw input: who I am, what I optimize for, and where I stand out.</p>
+      <p class="section-sub">Who I am, what I optimize for, and where I stand out.</p>
       <p class="about-text">
-        I'm a <strong>Data Engineer with 5+ years</strong> building the full stack of enterprise data, <strong>Airflow and PySpark pipelines,
-        Snowflake / Redshift / Azure lakehouses, streaming on Kafka, and BI reporting</strong>, for clients across
-        <strong>Insurance, Finance, and Retail/FMCG</strong>, each time as the engineer accountable for the outcome. What sets me apart is
-        diagnosing the real root cause: I've cut report runtimes up to <strong>60% across 92 reports</strong>, fixed AML join-grain bugs at the schema level,
-        and taken fraud-detection lag from a <strong>24-hour batch to near real time</strong>.
+        I'm a <strong>Data Engineer with 5+ years</strong> building enterprise data platforms end to end:
+        <strong>Airflow and PySpark pipelines, Snowflake and Redshift warehouses, an Azure lakehouse, Kafka streaming, and BI reporting</strong>
+        for <strong>Insurance, Finance, and Retail/FMCG</strong> clients, each time as the engineer accountable for the outcome.
+        What sets me apart is root-cause work. I cut report runtimes by up to <strong>60% across 92 reports</strong>, fixed a recurring AML data
+        mismatch by correcting join grain in the claims and premium models, and took fraud detection from a <strong>24-hour batch cycle to near real time</strong>.
       </p>
       <p class="about-text" style="margin-top:16px;">
-        On top of that foundation I build <strong>agentic AI</strong>: stateful <strong>LangGraph</strong> workflows, <strong>LangChain</strong> RAG and voice agents,
-        and guardrailed LLM systems that return structured, source-cited answers. I also work at an advanced level with <strong>Claude Code</strong>,
-        using it daily to design, build, and ship faster. The result is an engineer who can own a problem from raw source tables all the way to an AI agent that talks to the business.
+        On top of that foundation I build <strong>agentic AI</strong> (RAG, voice, and research agents), orchestrated with <strong>LangGraph</strong> and <strong>LangChain</strong>,
+        with guardrails so the LLM returns structured, source-cited answers. I use <strong>Claude Code</strong> at an advanced level every day to design,
+        build, and ship faster. That lets me own a problem from raw source tables all the way to an AI agent the business can talk to.
         <strong>Oracle Generative AI certified (100%).</strong>
       </p>
       <div class="about-grid">
-        <div class="about-pill"><span class="t">Data platforms</span><span class="d">Airflow, Databricks, Snowflake, Redshift, Azure, and Kafka for batch and streaming.</span></div>
+        <div class="about-pill"><span class="t">Data platforms</span><span class="d">Airflow, Databricks, Snowflake, Redshift, Azure and Kafka, for batch and streaming pipelines.</span></div>
         <div class="about-pill"><span class="t">Performance &amp; modeling</span><span class="d">Execution-plan tuning, schema redesign, incremental loads, SCD Type 2.</span></div>
-        <div class="about-pill"><span class="t">GenAI &amp; agents</span><span class="d">LangGraph, LangChain, RAG, voice agents, prompt design, guardrails, Claude Code.</span></div>
+        <div class="about-pill"><span class="t">GenAI &amp; agents</span><span class="d">Agents orchestrated with LangGraph and LangChain, plus RAG, voice, prompt design, guardrails and Claude Code.</span></div>
       </div>
     </section>
 
@@ -947,11 +1010,11 @@
       <div class="skill-row">
         <div class="skill-cat">Data Engineering</div>
         <div class="skill-tags">
-          <span class="tag">Apache Airflow</span><span class="tag">Apache Kafka</span><span class="tag">DBT</span><span class="tag">SSIS</span><span class="tag">Databricks</span>
+          <span class="tag">Apache Airflow</span><span class="tag">Apache Kafka</span><span class="tag">dbt</span><span class="tag">SSIS</span><span class="tag">Databricks</span>
         </div>
       </div>
       <div class="skill-row">
-        <div class="skill-cat">Warehousing</div>
+        <div class="skill-cat">Warehousing &amp; Modeling</div>
         <div class="skill-tags">
           <span class="tag">Snowflake</span><span class="tag">AWS Redshift</span><span class="tag">SQL Server</span><span class="tag">DB2</span><span class="tag">Data Modeling</span><span class="tag">ETL/ELT Design</span>
         </div>
@@ -959,7 +1022,7 @@
       <div class="skill-row">
         <div class="skill-cat">Cloud</div>
         <div class="skill-tags">
-          <span class="tag">Microsoft Azure (ADF, Synapse Analytics)</span><span class="tag">AWS (Redshift, S3, EC2)</span>
+          <span class="tag">Microsoft Azure (ADF, ADLS, Synapse Analytics)</span><span class="tag">AWS (Redshift, S3, EC2)</span>
         </div>
       </div>
       <div class="skill-row">
@@ -969,9 +1032,15 @@
         </div>
       </div>
       <div class="skill-row">
+        <div class="skill-cat">Agent Orchestration</div>
+        <div class="skill-tags">
+          <span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Stateful Agent Workflows</span><span class="tag">Tool Use</span><span class="tag">Guardrails</span>
+        </div>
+      </div>
+      <div class="skill-row">
         <div class="skill-cat">Generative AI</div>
         <div class="skill-tags">
-          <span class="tag">Generative AI</span><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">LLM Agents</span><span class="tag">Voice Agents</span><span class="tag">Prompt Engineering</span><span class="tag">Vector Search</span><span class="tag">Claude Code (Advanced)</span>
+          <span class="tag">Generative AI</span><span class="tag">LLM Agents</span><span class="tag">RAG</span><span class="tag">Embeddings</span><span class="tag">Vector Search</span><span class="tag">Prompt Engineering</span><span class="tag">Voice Agents</span><span class="tag">Claude Code (Advanced)</span>
         </div>
       </div>
       <div class="skill-row">
@@ -997,15 +1066,15 @@
           <span>Damco Solutions Private Limited <span class="loc">· IT Services &amp; Consulting</span></span>
           <span class="loc">Remote, India</span>
         </div>
-        <p class="job-scope"><strong>Scope:</strong> the engineer end to end on enterprise data programs: ingestion, cloud warehousing, performance tuning, BI, and now <strong>GenAI agents (LangGraph / LangChain)</strong>, for Insurance, Finance and Retail/FMCG clients, working directly with global actuarial and finance stakeholders.</p>
+        <p class="job-scope"><strong>Scope:</strong> end-to-end ownership of enterprise data programs for Insurance, Finance and Retail/FMCG clients, from ingestion and cloud warehousing to performance tuning, BI, and <strong>GenAI agents orchestrated with LangGraph and LangChain</strong>. I work directly with global actuarial and finance stakeholders.</p>
         <ul class="achv-list">
           <li>Engineered and orchestrated modern data pipelines using <strong>Apache Airflow</strong> and <strong>PySpark on Databricks</strong>, extracting high-volume data from on-premise systems and landing it into <strong>Snowflake</strong> to support scalable cloud analytics.</li>
-          <li>Redesigned complex <strong>SSIS ETL packages</strong> and built hybrid pipelines using <strong>Azure Data Factory</strong> to extract policy and finance data from legacy systems (SQL Server, DB2), replacing inefficient full-table reloads with robust <strong>incremental/delta extraction</strong> logic, meaningfully reducing nightly batch runtime.</li>
-          <li>Diagnosed slow-running SSRS reports by analyzing <strong>SQL Server execution plans</strong>, then rewrote 40+ queries, replacing correlated subqueries with CTEs/window functions, adding covering indexes, and removing implicit conversions blocking index seeks, <strong>cutting execution time up to 60% across 92 reports</strong>.</li>
-          <li>Restructured the foundational claims and premium <strong>data models for AML compliance</strong>, resolving a recurring data-mismatch bug caused by inconsistent join grain between fact and dimension tables, ensuring accuracy in suspicious-transaction reporting.</li>
+          <li>Redesigned complex <strong>SSIS ETL packages</strong> and built hybrid pipelines using <strong>Azure Data Factory</strong> to extract policy and finance data from legacy systems (SQL Server, DB2), replacing full-table reloads with <strong>incremental/delta extraction</strong> and meaningfully reducing nightly batch runtime.</li>
+          <li>Diagnosed slow-running SSRS reports by analyzing <strong>SQL Server execution plans</strong>, then rewrote 40+ queries: replaced correlated subqueries with CTEs and window functions, added covering indexes, and removed implicit conversions that blocked index seeks. Execution time dropped by <strong>up to 60% across 92 reports</strong>.</li>
+          <li>Restructured the foundational claims and premium <strong>data models for AML compliance</strong>, resolving a recurring data mismatch caused by inconsistent join grain between fact and dimension tables, and ensuring accuracy in suspicious-transaction reporting.</li>
           <li>Partnered directly with global actuarial and finance stakeholders to translate ambiguous requirements into self-service <strong>Power BI dashboards</strong> and <strong>Looker Studio</strong> reports, replacing single-threaded SQL batch processes and reducing recurring ad-hoc reporting requests.</li>
           <li>Established team-wide <strong>engineering standards</strong> by authoring SOPs covering SQL query optimization patterns, dataset caching, and ETL parameter design, shortening new-developer ramp-up time.</li>
-          <li>Design and build <strong>agentic GenAI systems</strong> with <strong>LangGraph</strong> and <strong>LangChain</strong>: stateful agent workflows, RAG over enterprise documents, and voice agents, with fixed output schemas and guardrails so results are structured, cited, and auditable.</li>
+          <li>Design and build <strong>agentic GenAI systems</strong> (RAG over enterprise documents, research, and voice agents), using <strong>LangGraph</strong> and <strong>LangChain</strong> to orchestrate the steps, state, and tool calls, with fixed output schemas and guardrails so results are structured, cited, and auditable.</li>
           <li>Use <strong>Claude Code at an advanced level</strong> as part of daily engineering (agentic coding, custom skills, and automated multi-step workflows) to accelerate pipeline development, debugging, and documentation.</li>
         </ul>
       </div>
@@ -1030,9 +1099,9 @@
           </div>
           <h3>Knowledge Sync: Market Research Agent</h3>
           <div class="proj-block"><span class="k">Problem</span><p>Market research meant hours of manually searching sources, reading, cross-checking and stitching findings into a usable brief. The process was slow, inconsistent, and hard to keep current.</p></div>
-          <div class="proj-block"><span class="k">Approach</span><p>Built an autonomous research agent as a <strong>LangGraph</strong> state graph: plan the research question, gather and extract from sources, synthesize, then review before producing the final output, with explicit state between nodes so each step is inspectable and repeatable.</p></div>
+          <div class="proj-block"><span class="k">Approach</span><p>Built a multi-step research agent, orchestrating the workflow as a <strong>LangGraph</strong> state graph: plan the research question, gather and extract from sources, synthesize, then review before producing the final output, with explicit state between nodes so each step is inspectable and repeatable.</p></div>
           <div class="proj-block result"><span class="k">Result</span><p>A research workflow that turns an open-ended market question into a structured, source-backed brief, replacing manual searching and copy-paste synthesis.</p></div>
-          <div class="proj-tags"><span class="tag">LangGraph</span><span class="tag">LLM Agents</span><span class="tag">RAG</span><span class="tag">Python</span></div>
+          <div class="proj-tags"><span class="tag">LangGraph</span><span class="tag">LLM Agents</span><span class="tag">Tool Use</span><span class="tag">Python</span></div>
         </div>
 
         <div class="proj-card featured" data-cat="ai">
@@ -1041,7 +1110,7 @@
           </div>
           <h3>Insurance Voice Agent</h3>
           <div class="proj-block"><span class="k">Problem</span><p>Policyholders had to wait on calls or navigate rigid menus for routine insurance questions such as coverage, claim status, and policy details, tying up support staff.</p></div>
-          <div class="proj-block"><span class="k">Approach</span><p>Built a conversational <strong>voice agent with LangChain</strong>: speech in, intent understanding, retrieval over policy knowledge, grounded response, speech out, with prompts and guardrails that keep answers within policy and escalate when unsure.</p></div>
+          <div class="proj-block"><span class="k">Approach</span><p>Built a conversational <strong>voice agent orchestrated with LangChain</strong>: speech in, intent understanding, retrieval over policy knowledge, grounded response, speech out, with prompts and guardrails that keep answers within policy and escalate when unsure.</p></div>
           <div class="proj-block result"><span class="k">Result</span><p>A hands-free insurance assistant that answers routine queries in natural conversation, grounded in policy content rather than free-form guessing.</p></div>
           <div class="proj-tags"><span class="tag">LangChain</span><span class="tag">Voice Agent</span><span class="tag">RAG</span><span class="tag">Prompt Engineering</span></div>
         </div>
@@ -1052,9 +1121,20 @@
           </div>
           <h3>Health Chatbot AI Agent</h3>
           <div class="proj-block"><span class="k">Problem</span><p>People want quick, understandable answers to health questions, but generic chatbots lose context mid-conversation and can overstep into unsafe advice.</p></div>
-          <div class="proj-block"><span class="k">Approach</span><p>Developed a conversational agent on <strong>LangGraph</strong> with stateful, multi-turn memory and a controlled graph flow: understand the query, gather missing details, respond from vetted context, and route risky or urgent queries to safe-handling paths with clear disclaimers.</p></div>
+          <div class="proj-block"><span class="k">Approach</span><p>Developed a conversational agent, orchestrated with <strong>LangGraph</strong>, with stateful, multi-turn memory and a controlled graph flow: understand the query, gather missing details, respond from vetted context, and route risky or urgent queries to safe-handling paths with clear disclaimers.</p></div>
           <div class="proj-block result"><span class="k">Result</span><p>A context-aware health assistant that holds a coherent conversation and stays inside defined safety boundaries instead of improvising.</p></div>
           <div class="proj-tags"><span class="tag">LangGraph</span><span class="tag">LLM Agents</span><span class="tag">Guardrails</span><span class="tag">Python</span></div>
+        </div>
+
+        <div class="proj-card" data-cat="ai">
+          <div class="proj-top">
+            <span class="proj-domain dom-genai">Generative AI</span>
+          </div>
+          <h3>AI Decision Due Diligence Analyst</h3>
+          <div class="proj-block"><span class="k">Problem</span><p>Business and sales teams spent hours manually searching dense policy documents and competitor research to answer routine compliance questions.</p></div>
+          <div class="proj-block"><span class="k">Approach</span><p>Designed a "Due Diligence Analyst" persona with a defined workflow: classify → retrieve → cross-check against policy rules → recommend. RAG pipeline: semantic chunking, embeddings, and vector similarity search to pull the most relevant passages per query. Every response constrained to a fixed JSON schema so downstream tools can consume it, with guardrails to cite sources, decline low-confidence queries, and limit hallucination.</p></div>
+          <div class="proj-block result"><span class="k">Result</span><p>A working internal AI agent returning structured, source-cited, auditable recommendations, substantially cutting manual document lookup time for business teams.</p></div>
+          <div class="proj-tags"><span class="tag">RAG</span><span class="tag">LLM Agents</span><span class="tag">Vector Search</span></div>
         </div>
 
         <div class="proj-card" data-cat="data">
@@ -1074,7 +1154,7 @@
           </div>
           <h3>Enterprise Data Lakehouse &amp; Reconciliation</h3>
           <div class="proj-block"><span class="k">Problem</span><p>A financial client's legacy batch processes (DB2/SQL Server) were failing to process high-volume daily transaction data, causing severe delays in financial reconciliation and compliance reporting.</p></div>
-          <div class="proj-block"><span class="k">Approach</span><p>Architected a Medallion architecture (Bronze/Silver/Gold) on Azure: Azure Data Factory to ingest on-premise data into Azure Data Lake Storage (ADLS), and PySpark jobs on Databricks handling deduplication, SCD Type 2, and aggregations into Delta tables.</p></div>
+          <div class="proj-block"><span class="k">Approach</span><p>Architected a Medallion (Bronze/Silver/Gold) lakehouse on Azure: Azure Data Factory to ingest on-premise data into Azure Data Lake Storage (ADLS), and PySpark jobs on Databricks handling deduplication, SCD Type 2, and aggregations into Delta tables.</p></div>
           <div class="proj-block result"><span class="k">Result</span><p>Modernized the analytics infrastructure, substantially cutting daily reconciliation processing time and providing one performant source of truth for Power BI reporting.</p></div>
           <div class="proj-tags"><span class="tag">Azure</span><span class="tag">Databricks</span><span class="tag">PySpark</span></div>
         </div>
@@ -1101,16 +1181,7 @@
           <div class="proj-tags"><span class="tag">Docker</span><span class="tag">Terraform</span><span class="tag">Kubernetes</span></div>
         </div>
 
-        <div class="proj-card" data-cat="ai">
-          <div class="proj-top">
-            <span class="proj-domain dom-genai">Generative AI</span>
-          </div>
-          <h3>AI Decision Due Diligence Analyst</h3>
-          <div class="proj-block"><span class="k">Problem</span><p>Business and sales teams burned hours manually searching dense policy documents and competitor research to answer routine compliance questions.</p></div>
-          <div class="proj-block"><span class="k">Approach</span><p>Designed a "Due Diligence Analyst" persona with a defined workflow: classify → retrieve → cross-check against policy rules → recommend. RAG pipeline: semantic chunking, embeddings, and vector similarity search to pull the most relevant passages per query. Every response constrained to a fixed JSON schema so downstream tools can consume it, with guardrails to cite sources, decline low-confidence queries, and avoid hallucinating.</p></div>
-          <div class="proj-block result"><span class="k">Result</span><p>A working internal AI agent returning structured, source-cited, auditable recommendations, drastically reducing manual document lookup time for business teams.</p></div>
-          <div class="proj-tags"><span class="tag">RAG</span><span class="tag">LLM Agents</span><span class="tag">Vector Search</span></div>
-        </div>
+        
 
       </div>
     </section>
@@ -1119,7 +1190,7 @@
     <section id="schema">
       <div class="eyebrow"><span class="n">05</span> SCHEMA</div>
       <h2>Education &amp; Certifications</h2>
-      <p class="section-sub">The credentials underpinning everything above.</p>
+      <p class="section-sub">Credentials behind the work above.</p>
 
       <div class="schema-grid">
         <div class="schema-block">
@@ -1135,8 +1206,8 @@
           <ul class="cert-list">
             <li><span><strong>Oracle Generative AI Professional</strong><span class="cert-issuer">Oracle</span></span><span class="badge">100%</span></li>
             <li><span><strong>Azure AI Fundamentals (AI-900)</strong><span class="cert-issuer">Microsoft</span></span><span class="badge">PASSED</span></li>
-            <li><span><strong>IBM Data Science Specialization</strong><span class="cert-issuer">IBM / Coursera</span></span><span class="badge">DONE</span></li>
-            <li><span><strong>MSBI: SQL Server BI Stack</strong><span class="cert-issuer">Udemy</span></span><span class="badge">DONE</span></li>
+            <li><span><strong>IBM Data Science Specialization</strong><span class="cert-issuer">IBM / Coursera</span></span><span class="badge">COMPLETED</span></li>
+            <li><span><strong>MSBI: SQL Server BI Stack</strong><span class="cert-issuer">Udemy</span></span><span class="badge">COMPLETED</span></li>
           </ul>
         </div>
       </div>
@@ -1147,12 +1218,12 @@
     <section id="output" style="border-bottom:none;">
       <div class="eyebrow"><span class="n">06</span> OUTPUT</div>
       <h2 class="output">Let's talk</h2>
-      <p class="lead">Open to Data Engineer, AI Engineer and GenAI / agent-building roles. The fastest way to reach me is email, I check it daily.</p>
+      <p class="lead">Open to Data Engineer, AI Engineer and GenAI / agent-building roles. The fastest way to reach me is email; I check it daily.</p>
 
       <div class="contact-grid">
-        <a class="contact-card" href="mailto:kaherkaran@gmail.com">
+        <a class="contact-card" href="mailto:kaherkaran1212@gmail.com">
           <span class="ic">✉</span>
-          <span><span class="cc-lbl mono">EMAIL</span><br><span class="cc-val">kaherkaran@gmail.com</span></span>
+          <span><span class="cc-lbl mono">EMAIL</span><br><span class="cc-val">kaherkaran1212@gmail.com</span></span>
         </a>
         <a class="contact-card" href="https://linkedin.com/in/karan-kaher-55645a148" target="_blank" rel="noopener">
           <span class="ic">in</span>
@@ -1176,54 +1247,6 @@
 <script>
 (function(){
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // ---- terminal typing effect (once, on load) ----
-  var termEl = document.getElementById('termLine');
-  var lines = [
-    {text:'$ pipeline run --engineer=karan_kaher --role=data_and_ai_engineer', cls:'prompt'},
-    {text:'> resolving profile.yaml ... done', cls:'out'},
-    {text:'> loading agents: langgraph, langchain, claude_code ... done', cls:'out'},
-    {text:'> status: SUCCESS', cls:'ok'}
-  ];
-
-  function renderStatic(){
-    termEl.innerHTML = lines.map(function(l){
-      return '<div class="'+l.cls+'">'+l.text+'</div>';
-    }).join('');
-  }
-
-  if(reduceMotion){
-    renderStatic();
-  } else {
-    var out = document.createElement('div');
-    termEl.appendChild(out);
-    var li = 0, ci = 0;
-    function typeStep(){
-      if(li >= lines.length){
-        var caret = document.createElement('span');
-        caret.className='caret';
-        termEl.appendChild(caret);
-        return;
-      }
-      var line = lines[li];
-      if(ci === 0){
-        var div = document.createElement('div');
-        div.className = line.cls;
-        div.id = 'tline'+li;
-        termEl.appendChild(div);
-      }
-      var div = document.getElementById('tline'+li);
-      ci++;
-      div.textContent = line.text.slice(0, ci);
-      if(ci < line.text.length){
-        setTimeout(typeStep, line.cls==='prompt' ? 14 : 10);
-      } else {
-        li++; ci = 0;
-        setTimeout(typeStep, 220);
-      }
-    }
-    typeStep();
-  }
 
   // ---- theme toggle ----
   var root = document.documentElement;
